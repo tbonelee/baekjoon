@@ -16,7 +16,7 @@ void find(int N, int M, int forcheck[], int board[], int location)
 	}
 
 	for (int fill = 1; fill <= N; fill++)
-		if (forcheck[fill - 1] == 0)
+		if (forcheck[fill - 1] == 0) // 이미 놓인 수인지 확인(-1하는 것은 인덱스가 0부터 시작하는 것 때문에 보정)
 		{
 			forcheck[fill - 1] = 1;
 			board[location] = fill;
