@@ -37,7 +37,7 @@ void	printstar_row(int num, int cnt, int row)
 {
 	if (num == 1)
 	{
-		printstar_col(cnt / 3, 3, 1, row);
+		printstar_col(cnt / 3, 3* 1, 1, row);
 		printstar_col(cnt / 3, 3, 2, row);
 		printstar_col(cnt / 3, 3, 3, row);
 	}

@@ -20,6 +20,7 @@ void heap_delete(int heap[], int num)
 {
 	int i = 1;
 
+// 
 	while (i * 2 <= num)
 	{
 		if (i * 2 + 1 > num) // && heap[i] < heap[2 * i])
