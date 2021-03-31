@@ -6,23 +6,30 @@
 
 #include <stdio.h>
 
-void onlymerge(int start, int end, int arr[])
-{
-	
-}
 
-void mergesort(int start, int end, int arr[])
-{
-	int middle = (start + end) / 2;
+// int main(void)
+// {
+// 	int N;
+// 	int K;
+// 	scanf("%d %d", &N, &K);
 
-	if (start == end)
-		return ;
+// 	int arr[N];
+// 	for (int i = 0; i < N; i++)
+// 		scanf("%d", &arr[i]);
 
-	mergesort(start, middle - 1, arr);
-	mergesort(middle, end, arr);
+// 	int sum = 0;
+// 	int coin = 0;
+// 	for (int i = N - 1; i >= 0; i--)
+// 		for (;sum + arr[i] <= K;)
+// 		{
+// 			sum += arr[i];
+// 			coin++;
+// 		}
+// 	printf("%d\n", coin);
 
-	onlymerge(start, end, arr);
-}
+// 	return 0;
+// }
+
 
 int main(void)
 {
@@ -31,8 +38,18 @@ int main(void)
 	scanf("%d %d", &N, &K);
 
 	int arr[N];
+	for (int i = 0; i < N; i++)
+		scanf("%d", &arr[i]);
 
+	int sum = 0;
+	int coin = 0;
+	for (int i = N - 1; i >= 0 && sum != K; i--)
+	{
+		coin += (K - sum) / arr[i];
+		sum += arr[i] * ((K - sum) / arr[i]);
+	}
 
+	printf("%d\n", coin);
 
 	return 0;
 }
