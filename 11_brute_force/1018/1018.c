@@ -2,6 +2,8 @@
 
 int g_min = 64;
 
+
+
 int main()
 {
 	int row;
