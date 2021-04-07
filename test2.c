@@ -24,9 +24,9 @@ void	DFS(int depth)
 		{
 			for (int i = 0; i < M; i++)
 			{
-				// printf("%d ", g_arr[i]);
+				printf("%d ", g_arr[i]);
 			}
-			// printf("\n");
+			printf("\n");
 		}
 		g_sign = 1;
 		return ;
@@ -44,18 +44,20 @@ int	main()
 
 	clock_t start[100];
 	clock_t end[100];
-	for (int i = 0; i < 100 ; i++)
+	for (int i = 0; i < 10 ; i++)
 	{
 		start[i] = clock();
 		DFS(0);
 		end[i] = clock();
 	}
+	// printf("here");
 	double mean = 0;
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		mean += (double)(end[i] - start[i]);
+		printf("Time%d %lf\n", i, (double)(end[i] - start[i])/CLOCKS_PER_SEC);
 	}
-	mean /= 100;
+	mean /= 10;
 	printf("Time: %lf\n", mean / CLOCKS_PER_SEC);
 
 

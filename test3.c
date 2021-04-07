@@ -9,10 +9,10 @@ void	DFS(int n, int m, int arr[], int index)
 	{
 		for (j = 0; j < m - 1; j++)
 		{
-			// printf("%d ", arr[j]);
+			printf("%d ", arr[j]);
 		}
-		// printf("%d", arr[j]);
-		// printf("\n");
+		printf("%d", arr[j]);
+		printf("\n");
 		return ;
 	}
 	for (int i = 0; i < n; i++)
@@ -30,7 +30,7 @@ int	main()
 
 clock_t start[100];
 clock_t end[100];
-for (int i = 0; i < 100 ; i++)
+for (int i = 0; i < 10 ; i++)
 {
 	start[i] = clock();
 	int arr[m];
@@ -40,11 +40,11 @@ for (int i = 0; i < 100 ; i++)
 	end[i] = clock();
 }
 double mean = 0;
-for (int i = 0; i < 100; i++)
+for (int i = 0; i < 10; i++)
 {
 	mean += (double)(end[i] - start[i]);
 }
-mean /= 100;
+mean /= 10;
 	// printf("Time: %lf\n", (double)(end - start)/CLOCKS_PER_SEC);
 	printf("Time: %lf\n", mean / CLOCKS_PER_SEC);
 }
