@@ -19,8 +19,9 @@ int main()
 	long long result = 0;
 	int start = 0;
 	int i;
-	for (i = 0; i < N - 1; i++)
+	for (i = 0; i < N - 1;)
 	{
+
 		if (price[i] < price[start])
 		{
 			for (int j = start; j < i; j++)

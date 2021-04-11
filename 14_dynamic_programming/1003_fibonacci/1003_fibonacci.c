@@ -3,6 +3,7 @@
 int g_count_0[41];
 int g_count_1[41];
 
+// 함수가 호출될 때 n_up이 피보나치 수열의 인덱스가 된다.
 void fibonacci(int n_down, int n_up)
 {
 	if (n_down == -1)

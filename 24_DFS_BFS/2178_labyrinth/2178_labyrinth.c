@@ -106,6 +106,17 @@ int main()
 	// printf("\n");
 
 
+	printf("===is_path===\n");
+	for (int i = 1; i <= N; i++)
+	{
+		for (int j = 1; j <= M; j++)
+		{
+			printf(" %c", map[i][j].is_path);
+		}
+		printf("\n");
+	}
+	printf("\n");
+
 	return 0;
 }
 
