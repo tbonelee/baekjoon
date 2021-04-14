@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
+int count_blue = 0;
+int count_white = 0;
 int map[130][130];
 
 void find(int N, int i_start, int i_end, int j_start, int j_end);
@@ -8,17 +9,16 @@ int main(void)
 {
 	int N;
 	scanf("%d", &N);
+
 	for (int i = 1; i <= N; i++)
 	{
-		getchar();
 		for (int j = 1; j <= N; j++)
 		{
-			char buf[2]; buf[1] = 0;
-			scanf("%c", buf);
-			map[i][j] = atoi(buf);
+			scanf("%d", &map[i][j]);
 		}
 	}
 	find(N, 1, N, 1, N);
+	printf("%d\n%d\n", count_white, count_blue);
 }
 
 void find(int N, int i_start, int i_end, int j_start, int j_end)
@@ -33,18 +33,16 @@ void find(int N, int i_start, int i_end, int j_start, int j_end)
 			{
 				int i_mid = (i_start + i_end) / 2;
 				int j_mid = (j_start + j_end) / 2;
-				printf("(");
 				find(N, i_start, i_mid, j_start, j_mid);
 				find(N, i_start, i_mid, j_mid + 1, j_end);
 				find(N, i_mid + 1, i_end, j_start, j_mid);
 				find(N, i_mid + 1, i_end, j_mid + 1, j_end);
-				printf(")");
 				return ;
 			}
 		}
 	}
 	if (flag == 1)
-		printf("1");
+		count_blue++;
 	else if (flag == 0)
-		printf("0");
+		count_white++;
 }

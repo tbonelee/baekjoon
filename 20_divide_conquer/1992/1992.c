@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int count_zero = 0;
+int count_one = 0;
 int map[130][130];
+char output[200];
+int i_output = 0;
 
 void find(int N, int i_start, int i_end, int j_start, int j_end);
 int main(void)
@@ -18,7 +22,10 @@ int main(void)
 			map[i][j] = atoi(buf);
 		}
 	}
+	// printf("(");
 	find(N, 1, N, 1, N);
+	// printf(")");
+	// printf("%d\n%d\n", count_one, count_zero);
 }
 
 void find(int N, int i_start, int i_end, int j_start, int j_end)
@@ -44,7 +51,9 @@ void find(int N, int i_start, int i_end, int j_start, int j_end)
 		}
 	}
 	if (flag == 1)
+		// count_one++;
 		printf("1");
 	else if (flag == 0)
+		// count_zero++;
 		printf("0");
 }
