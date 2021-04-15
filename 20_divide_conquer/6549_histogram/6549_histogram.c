@@ -48,7 +48,8 @@ ll find(int start, int end)
 		ll size;
 		min_height = min(min_height, min(arr[i_left], arr[i_right]));
 		// printf("start = %d, end = %d, min_height = %d\n", start,end,min_height);
-		size = (i_right - i_left + 1) * min_height;
+		// 이 부분에서 ll로 묵시적 변환될 줄 알았는데 되지 않아서 정수 오버플로우 문제 발생
+		size = ((ll)i_right - (ll)i_left + 1) * min_height;
 		// printf(" size = %lld\n", size);
 		max_size = max(max_size, size);
 		if (i_left == start && i_right == end)
