@@ -39,4 +39,5 @@ int main()
 
 	free(arr_t);
 	free(arr_p);
+	free(memo);
 }

@@ -31,7 +31,7 @@ int main()
 			tail = tail == qsize ? 1 : tail + 1;
 			pos[temp - 1] = pos[temp] + 1;
 		}
-		if (temp * 2 <= 100000 && pos[temp * 2] == 0 && temp != 0 && temp != 1)
+		if (temp * 2 <= 100000 && pos[temp * 2] == 0)
 		{
 			Q[tail] = temp * 2;
 			tail = tail == qsize ? 1 : tail + 1;
