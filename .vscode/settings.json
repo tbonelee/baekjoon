@@ -3,7 +3,9 @@
 		"stdio.h": "c",
 		"deque": "cpp",
 		"string": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"ostream": "cpp",
+		"iosfwd": "cpp"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }
