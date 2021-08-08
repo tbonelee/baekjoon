@@ -1,0 +1,128 @@
+#include <iostream>
+
+using namespace std;
+
+int N, L;
+
+int map[100][100];
+
+int ret;
+
+int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> N >> L;
+	for (int i = 0; i < N; i++){
+		for (int j = 0; j < N; j++){
+			cin >> map[i][j];
+		}
+	}
+
+	for (int i = 0; i < N; i++){
+		int succ = 0;
+		int before = map[i][0];
+		int able_to_put_slope = 0;
+		int is_a_path = 1;
+
+		for (int j = 0; j < N; j++){
+			if (map[i][j] == before)
+				succ++;
+			else if (map[i][j] == before + 1){
+				if (able_to_put_slope == 1){
+					succ = 1;
+					before = map[i][j];
+				}else{
+					is_a_path = 0;
+					break ;
+				}
+			}else if (map[i][j] == before - 1){
+				if (j + L - 1 < N){
+					int flag = 1;
+					for (int k = 1; k <= L - 1; k++){
+						if (map[i][j + k] != map[i][j]){
+							flag = 0;
+							break ;
+						}
+					}
+					if (flag == 0){
+						is_a_path = 0;
+						break ;
+					}
+					j += L - 1;
+					before = map[i][j];
+					succ = 0;
+				}else{
+					is_a_path = 0;
+					break ;
+				}
+			}else{
+				is_a_path = 0;
+				break ;
+			}
+
+			if (succ >= L)
+				able_to_put_slope = 1;
+			else
+				able_to_put_slope = 0;
+
+		}
+		if (is_a_path == 1){
+			ret++;
+		}
+	}
+
+	for (int j = 0; j < N; j++){
+		int succ = 0;
+		int before = map[0][j];
+		int able_to_put_slope = 0;
+		int is_a_path = 1;
+
+		for (int i = 0; i < N; i++){
+			if (map[i][j] == before)
+				succ++;
+			else if (map[i][j] == before + 1){
+				if (able_to_put_slope == 1){
+					succ = 1;
+					before = map[i][j];
+				}else{
+					is_a_path = 0;
+					break ;
+				}
+			}else if (map[i][j] == before - 1){
+				if (i + L - 1 < N){
+					int flag = 1;
+					for (int k = 1; k <= L - 1; k++){
+						if (map[i + k][j] != map[i][j]){
+							flag = 0;
+							break ;
+						}
+					}
+					if (flag == 0){
+						is_a_path = 0;
+						break ;
+					}
+					i += L - 1;
+					before = map[i][j];
+					succ = 0;
+				}else{
+					is_a_path = 0;
+					break ;
+				}
+			}else{
+				is_a_path = 0;
+				break ;
+			}
+
+			if (succ >= L)
+				able_to_put_slope = 1;
+			else
+				able_to_put_slope = 0;
+
+		}
+		if (is_a_path == 1){
+			ret++;
+		}
+	}
+	cout << ret << "\n";
+}
